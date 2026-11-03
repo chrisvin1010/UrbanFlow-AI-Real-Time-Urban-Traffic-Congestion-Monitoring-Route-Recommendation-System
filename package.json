@@ -1,0 +1,32 @@
+{
+  "name": "urbanflow-ai",
+  "version": "1.0.0",
+  "description": "UrbanFlow AI — Real-Time Urban Traffic Congestion Monitoring & Smart Route Recommendation System",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=server & npm run dev --workspace=client",
+    "dev:server": "npm run dev --workspace=server",
+    "dev:client": "npm run dev --workspace=client",
+    "build": "npm run build --workspace=server && npm run build --workspace=client",
+    "build:server": "npm run build --workspace=server",
+    "build:client": "npm run build --workspace=client",
+    "start": "npm run start --workspace=server",
+    "seed": "npm run seed --workspace=server",
+    "test": "npm run test --workspace=server"
+  },
+  "keywords": [
+    "traffic-monitoring",
+    "smart-city",
+    "route-recommendation",
+    "mongodb",
+    "leaflet",
+    "socketio",
+    "redis"
+  ],
+  "author": "UrbanFlow AI Team",
+  "license": "MIT"
+}
