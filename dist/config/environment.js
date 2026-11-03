@@ -1,0 +1,27 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ENV = void 0;
+const dotenv_1 = __importDefault(require("dotenv"));
+const path_1 = __importDefault(require("path"));
+// Load .env from root or server directory
+dotenv_1.default.config({ path: path_1.default.resolve(__dirname, '../../../.env') });
+dotenv_1.default.config();
+exports.ENV = {
+    PORT: parseInt(process.env.PORT || '5000', 10),
+    NODE_ENV: process.env.NODE_ENV || 'development',
+    CLIENT_URL: process.env.CLIENT_URL || 'http://localhost:5173',
+    JWT_SECRET: process.env.JWT_SECRET || 'urbanflow-super-secret-jwt-key-2026',
+    JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || '7d',
+    MONGODB_URI: process.env.MONGODB_URI || 'mongodb://localhost:27017/urbanflow_db',
+    REDIS_URL: process.env.REDIS_URL || 'redis://localhost:6379',
+    REDIS_ENABLED: process.env.REDIS_ENABLED !== 'false',
+    TRAFFIC_SIMULATION_ENABLED: process.env.TRAFFIC_SIMULATION_ENABLED !== 'false',
+    TRAFFIC_SIMULATION_INTERVAL_MS: parseInt(process.env.TRAFFIC_SIMULATION_INTERVAL_MS || '15000', 10),
+    TRAFFIC_DEFAULT_CITY: process.env.TRAFFIC_DEFAULT_CITY || 'San Francisco',
+    OSRM_ROUTING_URL: process.env.OSRM_ROUTING_URL || 'https://router.project-osrm.org/route/v1/driving/',
+    NOMINATIM_GEOCODING_URL: process.env.NOMINATIM_GEOCODING_URL || 'https://nominatim.openstreetmap.org/search',
+};
+//# sourceMappingURL=environment.js.map
